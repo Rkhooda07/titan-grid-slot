@@ -1,93 +1,156 @@
-# GAME DESIGN DOCUMENT
-## Titan Grid (Working Title)
+# Game Design Document (GDD)
+## Payline Slot – 5x3, 20 Fixed Paylines
 
 ---
 
-## Overview
-Titan Grid is a high-volatility 5x5 WAYS slot designed for explosive, rare wins and strong replay appeal.  
-The game targets experienced Stake players who enjoy long sessions with the potential for massive payouts.
+## 1. Design Goals
+
+- Create a **classic-feel slot** with modern UX
+- Keep rules easy to understand
+- Encourage frequent engagement through small wins
+- Build a solid foundation for feature expansion
 
 ---
 
-## Core Configuration
+## 2. Core Game Specs
 
-- Grid Size: 5x5
-- Reels: 5
-- Rows: 5
-- Win System: All Ways Pays (3125 ways)
-- Win Direction: Left to Right
-- Minimum Match: 3 symbols
-
----
-
-## RTP & Volatility
-
-- Target RTP: 96.00%
-- Volatility: High
-- Max Win: 10,000x bet
+### Grid
+| Property | Value |
+|-------|------|
+| Reels | 5 |
+| Rows | 3 |
+| Layout | Static |
+| Direction | Left → Right |
 
 ---
 
-## Symbols
+## 3. Paylines
 
-### Low Symbols (6)
-- L1, L2, L3, L4, L5, L6
-
-### Medium Symbols (4)
-- M1, M2, M3, M4
-
-### High Symbols (2)
-- H1, H2
-
-### Special Symbols (2)
-- Wild
-- Scatter
+- Total Paylines: **20**
+- Type: Fixed, always active
+- Player cannot enable/disable paylines
+- Patterns include:
+  - Horizontal lines
+  - Zig-zag / V / inverted V shapes
+- One winning combination per payline
 
 ---
 
-## Wild Symbol
+## 4. Symbol System
 
-- Substitutes for all symbols except Scatter
-- Appears in base game
-- Does not trigger features
+### Symbol Breakdown
 
----
-
-## Scatter Symbol
-
-- Appears on all reels
-- Pays anywhere
-- Triggers Free Spins
-
-Scatter Triggers:
-- 3 Scatters: Free Spins
-- 4–5 Scatters: Additional rewards (TBD)
+| Type | Count |
+|----|-----|
+| Regular Symbols | 6–7 |
+| Wild | 1 |
+| Scatter | 1 |
+| Bonus (Future) | 1 (optional) |
 
 ---
 
-## Bonus Feature: Free Spins
+### Wild Symbol Rules
 
-- Trigger: 3+ Scatters
-- Base Spins Awarded: 10
-- Free Spins Modifiers:
-  - Increased Wild frequency OR
-  - Win Multiplier (TBD during math balancing)
-
----
-
-## Design Goals
-
-- Encourage high-risk, high-reward play
-- Majority of RTP delivered via bonus rounds
-- Maintain strong anticipation and replay value
+- Substitutes for all regular symbols
+- Cannot substitute for Scatter or Bonus
+- Appears only on Reels 2–5
+- No multipliers applied
 
 ---
 
-## Compliance
+### Scatter Symbol Rules
 
-- RNG-based outcomes
-- Provably fair compatible
-- No progressive jackpots
-- No skill-based mechanics
+- Pays anywhere on the grid
+- Ignores paylines
+- Counted globally per spin
+- Triggers Free Spins feature (future implementation)
 
 ---
+
+## 5. Win Rules
+
+### Line Wins
+
+- Matching symbols must:
+  - Start from Reel 1
+  - Be consecutive
+  - Follow an active payline
+- Win lengths:
+  - 3 of a kind
+  - 4 of a kind
+  - 5 of a kind
+- Only the **highest-paying combination per payline** is awarded
+
+---
+
+### Scatter Wins
+
+- Paid independently of paylines
+- Evaluated after line wins
+- Does not block line wins
+
+---
+
+## 6. Betting Model
+
+- Player places **one total bet**
+- Bet is divided equally across 20 paylines
+- No line bet customization
+- Simple bet ladder recommended (e.g. 0.20 → 100.00)
+
+---
+
+## 7. RTP & Volatility
+
+### Target Metrics
+
+- RTP Target: ~96% (adjustable)
+- Volatility: Medium
+
+### Feel Profile
+
+- Frequent small line wins (3-symbol hits)
+- Regular 4-symbol wins
+- Occasional strong 5-symbol payouts
+- Scatters provide anticipation without overuse
+
+---
+
+## 8. RNG & Weighting (High-Level)
+
+- Each reel uses weighted symbol distribution
+- Higher-value symbols have lower weights
+- Wild appearance limited via reel restriction
+- Scatter appearance tuned to control feature frequency
+
+---
+
+## 9. Future Features (Not in Scope)
+
+- Free Spins with modifiers
+- Bonus Game
+- Wild Multipliers
+- Expanding or Sticky Reels
+- Cascading or Hold & Spin modes
+
+---
+
+## 10. Non-Goals
+
+- No payline selection
+- No cluster pays
+- No Megaways / dynamic reels
+- No multi-directional wins
+
+---
+
+## 11. Success Criteria
+
+- Clear win visibility
+- Predictable behavior
+- Easy math validation
+- Extendable codebase
+
+---
+
+End of Document

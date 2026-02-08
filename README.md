@@ -1,60 +1,86 @@
-# 🎰 Slot Machine Game – WAYS Slot
+# 🎰 Slot Machine Game – PAYLINE Slot
 
-A custom-built **WAYS slot machine game**, designed from scratch with a clear **Game Design Document (GDD)** approach.  
-This project focuses on clean reel logic, symbol weighting, configurable reel strips, and a scalable architecture suitable for real-money or social casino games.
+A modern, classic-style **payline-based slot game** built with a fixed grid and always-active paylines.  
+Designed for **medium volatility**, frequent small wins, and clear, readable gameplay.
 
----
-
-## 🚀 Project Overview
-
-This slot game is built as a **WAYS slot** (no fixed paylines). Wins are calculated based on matching symbols from **left to right** across adjacent reels, using dynamic reel configurations.
-
-Key goals of this project:
-- Modular & scalable slot engine
-- Configurable reels, rows, and symbol weights
-- Clear separation between game logic and UI
-- Easy future expansion (features, bonus rounds, free spins, etc.)
+This project focuses on simplicity, clarity, and extensibility for future features like free spins and bonus rounds.
 
 ---
 
-## 🎯 Slot Configuration (Phase 1)
+## 🎰 Game Overview
 
-### 🔹 Reels & Rows
-- **Reels:** 5
-- **Rows:** 3
-- Symbols are evaluated reel-by-reel from left to right.
-
-### 🔹 WAYS System
-- All possible symbol combinations across adjacent reels are counted as **WAYS**.
-- No fixed paylines.
-- More matching symbols on consecutive reels = more WAYS.
-
-### 🔹 Symbols
-- Regular symbols
-- Premium symbols
-- Wild symbol (substitutes for others)
-- Scatter (reserved for future bonus features)
-
-### 🔹 Symbol Weights
-- Each symbol has a defined probability via **reel strips**
-- Higher-value symbols appear less frequently
-- Lower-value symbols appear more often
+- **Grid:** 5 Reels × 3 Rows
+- **Paylines:** 20 fixed paylines (always active)
+- **Pay Direction:** Left → Right only
+- **Win Condition:** 3 / 4 / 5 matching symbols
+- **Match Requirement:** Must start from Reel 1
+- **Volatility:** Medium
+- **Target Feel:** Frequent small hits, occasional strong wins
 
 ---
 
-## 🧠 Core Game Logic
+## 🧩 Core Features
 
-- Reel strips control randomness (not RNG-per-spin symbol picks)
-- Spin result is derived from stopping positions on each reel
-- Win evaluation:
-  - Starts from Reel 1
-  - Stops when a reel breaks the matching chain
-- Payout =  
-  `symbol payout × number of matching reels × number of WAYS`
+### Grid
+- Static 5×3 layout
+- No expanding reels or modifiers (for now)
+
+### Paylines
+- 20 predefined paylines
+- Always enabled (no player selection)
+- Includes:
+  - Straight horizontal lines
+  - Zig-zag patterns
+- One win per payline (highest-paying symbol wins)
+
+### Symbols
+- **10–12 total symbols**
+  - 6–7 Regular symbols
+  - 1 Wild
+  - 1 Scatter
+  - (Optional) 1 Bonus symbol for future features
+
+### Wild Symbol
+- Substitutes for all regular symbols
+- Appears on **Reels 2–5 only**
+- No multipliers or special effects (yet)
+
+### Scatter Symbol
+- Pays anywhere on the grid
+- Does **not** use paylines
+- Triggers free spins (feature to be added later)
 
 ---
 
-## 📂 Project Structure (Suggested)
+## 💰 Betting System
+
+- Single **total bet**
+- Internally divided across 20 paylines
+- No per-line betting or line selection
+- Clean and beginner-friendly UX
+
+---
+
+## 🎯 Win Evaluation Rules
+
+- Only leftmost-aligned wins count
+- Winning symbols must start from Reel 1
+- Evaluated per payline independently
+- Highest possible win per payline is awarded
+
+---
+
+## 🚀 Planned Extensions
+
+- Free Spins Feature (Scatter-based)
+- Bonus Symbol & Bonus Game
+- Wild Multipliers
+- Expanding or Sticky Wilds
+- Volatility tuning via symbol weights
+
+---
+
+## 📂 Project Structure (initial)
 
 slot-machine/
 │
@@ -96,22 +122,3 @@ slot-machine/
   - Casino backend integration ready
 
 ---
-
-## 📈 Roadmap
-
-### Phase 1 – Core Slot
-- ✅ Reels & rows
-- ✅ WAYS evaluation
-- ✅ Symbol weights & reel strips
-- ✅ Base game payouts
-
-### Phase 2 – Features
-- ⏳ Wild multipliers
-- ⏳ Free spins
-- ⏳ Scatter bonus
-- ⏳ RTP tuning
-
-### Phase 3 – Polish
-- ⏳ Animations & sound
-- ⏳ UI/UX integration
-- ⏳ Performance optimization
